@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//Defining schema for database on mongoDB
 const MovieSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, unique: true },
