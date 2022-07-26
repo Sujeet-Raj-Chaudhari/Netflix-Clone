@@ -1,17 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Featured from "../../Components/Featured/Featured";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./home.scss";
 import List from "../../Components/List/List";
-const Home = () => {
+import axios from "axios";
+
+const Home = ({ type }) => {
+  const [lists, setLists] = useState([]);
+  const [genre, setGenre] = useState(null);
+  useEffect(() => {
+    const getRandomLists = async () => {
+      try {
+        const res = await axios.get(
+          `lists${type ? "?type=" + type : ""}${
+            genre ? "&genre=" + genre : ""
+          }`,
+          {
+            headers: {
+              authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZGQzNmExNmVjMzAwNjk0NTUwNDMyZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODgwODAwOSwiZXhwIjoxNjU5MjQwMDA5fQ.qooP4_t80VkGzmbHt6yFpXWZYJlwwa2BA4kpBnF2_aI",
+            },
+          }
+        );
+
+        setLists(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getRandomLists();
+  }, [type, genre]);
   return (
     <div className="home">
       <Navbar />
-      <Featured type="series" />
-      <List />
-      <List />
-      <List />
-      <List />
+      <Featured type={type} />
+      {lists.map((list) => (
+        <List list={list} />
+      ))}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { Search, Notifications, ArrowDropDown } from "@material-ui/icons";
 import React, { useState } from "react";
 import "./navbar.scss";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,7 +10,6 @@ const Navbar = () => {
     setIsScrolled(window.scrollY === 0 ? false : true);
     return () => (window.onscroll = null);
   };
-  console.log(isScrolled);
   return (
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
@@ -18,9 +18,18 @@ const Navbar = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-          <span>HomePage</span>
-          <span>Series</span>
-          <span>Movies</span>
+
+          <Link to="/" className="link">
+            <span>HomePage</span>
+          </Link>
+
+          <Link to="/series" className="link">
+            <span>Series</span>
+          </Link>
+          <Link to="/movies" className="link">
+            <span>Movies</span>
+          </Link>
+
           <span>New And Popular</span>
           <span>My List</span>
         </div>
