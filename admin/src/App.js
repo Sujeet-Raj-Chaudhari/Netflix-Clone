@@ -9,23 +9,100 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
-
+import Login from "./pages/login/Login";
+import { Fragment } from "react";
 function App() {
   return (
     <Router>
-      <Topbar />
-      <div className="container">
-        <Sidebar />
-        <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route path="/users" element={<UserList />}></Route>
-          <Route path="/user/:userId" element={<User />}></Route>
-          <Route path="/newUser" element={<NewUser />}></Route>
-          <Route path="/products" element={<ProductList />}></Route>
-          <Route path="/product/:productId" element={<Product />}></Route>
-          <Route path="/newproduct" element={<NewProduct />}></Route>
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+
+        <Route
+          exact
+          path="/"
+          element={
+            <Fragment>
+              <Topbar />
+              <div className="container">
+                <Sidebar />
+                <Home />
+              </div>
+            </Fragment>
+          }
+        ></Route>
+        <Route
+          path="/users"
+          element={
+            <Fragment>
+              <Topbar />
+              <div className="container">
+                <Sidebar />
+                <UserList />
+              </div>
+            </Fragment>
+          }
+        ></Route>
+        <Route
+          path="/user/:userId"
+          element={
+            <Fragment>
+              <Topbar />
+              <div className="container">
+                <Sidebar />
+                <User />
+              </div>
+            </Fragment>
+          }
+        ></Route>
+        <Route
+          path="/newUser"
+          element={
+            <Fragment>
+              <Topbar />
+              <div className="container">
+                <Sidebar />
+                <NewUser />
+              </div>
+            </Fragment>
+          }
+        ></Route>
+        <Route
+          path="/movies"
+          element={
+            <Fragment>
+              <Topbar />
+              <div className="container">
+                <Sidebar />
+                <ProductList />
+              </div>
+            </Fragment>
+          }
+        ></Route>
+        <Route
+          path="/product/:productId"
+          element={
+            <Fragment>
+              <Topbar />
+              <div className="container">
+                <Sidebar />
+                <Product />
+              </div>
+            </Fragment>
+          }
+        ></Route>
+        <Route
+          path="/newproduct"
+          element={
+            <Fragment>
+              <Topbar />
+              <div className="container">
+                <Sidebar />
+                <NewProduct />
+              </div>
+            </Fragment>
+          }
+        ></Route>
+      </Routes>
     </Router>
   );
 }
