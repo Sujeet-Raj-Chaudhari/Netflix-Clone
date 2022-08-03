@@ -20,8 +20,6 @@ export default function ProductList() {
     getMovie(dispatch);
   }, [dispatch]);
 
-  console.log(movies);
-
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {
@@ -49,7 +47,10 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row.id}>
+            <Link
+              to={{ pathname: "/product/" + params.row._id }}
+              state={{ movie: params.row }}
+            >
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline

@@ -34,6 +34,7 @@ export default function ListItem({ index, item }) {
     getMovie();
   }, [item]);
 
+  console.log(movie);
   return (
     <Link to="/watch" state={{ movie: movie }}>
       <div
