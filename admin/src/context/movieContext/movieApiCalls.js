@@ -1,7 +1,7 @@
 import {
-  getMovieFailure,
-  getMovieStart,
-  getMovieSuccess,
+  getMoviesFailure,
+  getMoviesStart,
+  getMoviesSuccess,
   deleteMovieStart,
   deleteMovieSuccess,
   deleteMovieFailure,
@@ -11,8 +11,8 @@ import {
 } from "./MovieAction";
 import axios from "axios";
 
-export const getMovie = async (dispatch) => {
-  dispatch(getMovieStart());
+export const getMovies = async (dispatch) => {
+  dispatch(getMoviesStart());
   try {
     const res = await axios.get("/movies", {
       headers: {
@@ -21,9 +21,9 @@ export const getMovie = async (dispatch) => {
       },
     });
 
-    dispatch(getMovieSuccess(res.data));
+    dispatch(getMoviesSuccess(res.data));
   } catch (err) {
-    dispatch(getMovieFailure());
+    dispatch(getMoviesFailure());
   }
 };
 
@@ -42,6 +42,8 @@ export const createMovie = async (movie, dispatch) => {
     dispatch(createMovieFailure());
   }
 };
+
+//delete
 export const deleteMovie = async (id, dispatch) => {
   dispatch(deleteMovieStart());
   try {

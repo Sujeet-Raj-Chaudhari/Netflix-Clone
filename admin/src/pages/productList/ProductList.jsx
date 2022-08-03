@@ -6,8 +6,8 @@ import { useContext, useEffect, useState } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import {
   deleteMovie,
-  getMovie,
-} from "../../context/movieContext/movieApiCalls";
+  getMovies,
+} from "../../context/movieContext/MovieApiCalls";
 
 export default function ProductList() {
   const { movies, dispatch } = useContext(MovieContext);
@@ -17,7 +17,7 @@ export default function ProductList() {
   };
 
   useEffect(() => {
-    getMovie(dispatch);
+    getMovies(dispatch);
   }, [dispatch]);
 
   const columns = [

@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import "./newProduct.css";
 import { storage_bucket } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { createMovie } from "../../context/movieContext/movieApiCalls";
+import { createMovie } from "../../context/movieContext/MovieApiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 
 export default function NewProduct() {

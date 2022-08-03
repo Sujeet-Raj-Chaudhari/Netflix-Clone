@@ -14,6 +14,9 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import ListList from "./pages/listList/ListList";
+import NewList from "./pages/newList/NewList";
+import List from "./pages/list/List";
 import Login from "./pages/login/Login";
 import { Fragment, useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
@@ -110,6 +113,42 @@ function App() {
                   <div className="container">
                     <Sidebar />
                     <NewProduct />
+                  </div>
+                </Fragment>
+              }
+            ></Route>
+            <Route
+              path="/lists"
+              element={
+                <Fragment>
+                  <Topbar />
+                  <div className="container">
+                    <Sidebar />
+                    <ListList />
+                  </div>
+                </Fragment>
+              }
+            ></Route>
+            <Route
+              path="/list/:listId"
+              element={
+                <Fragment>
+                  <Topbar />
+                  <div className="container">
+                    <Sidebar />
+                    <List />
+                  </div>
+                </Fragment>
+              }
+            ></Route>
+            <Route
+              path="/newlist"
+              element={
+                <Fragment>
+                  <Topbar />
+                  <div className="container">
+                    <Sidebar />
+                    <NewList />
                   </div>
                 </Fragment>
               }
