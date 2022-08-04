@@ -60,7 +60,7 @@ export default function Sidebar() {
                 Lists
               </li>
             </Link>
-            <Link to="/newMovie" className="link">
+            <Link to="/newproduct" className="link">
               <li className="sidebarListItem">
                 <AddToQueue className="sidebarIcon" />
                 Add Movie

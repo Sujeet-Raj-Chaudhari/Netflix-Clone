@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./featured.scss";
 import { PlayArrow, InfoOutlined } from "@material-ui/icons";
 import axios from "axios";
-export default function Featured({ type }) {
+export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
   useEffect(() => {
     const getRandomContent = async () => {
@@ -22,13 +22,16 @@ export default function Featured({ type }) {
     getRandomContent();
   }, [type]);
 
-  console.log(content);
   return (
     <div className="featured">
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
@@ -49,7 +52,7 @@ export default function Featured({ type }) {
       <img src={content.img} alt="" />
 
       <div className="info">
-        <img src={content.img} alt="" />
+        <img src={content.imgTitle} alt="" />
 
         <span className="desc">{content.desc}</span>
         <div className="buttons">
