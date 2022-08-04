@@ -11,9 +11,9 @@ import {
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
+import MovieList from "./pages/movieList/MovieList";
+import NewMovie from "./pages/newMovie/NewMovie";
+import Movie from "./pages/movie/Movie";
 import ListList from "./pages/listList/ListList";
 import NewList from "./pages/newList/NewList";
 import List from "./pages/list/List";
@@ -88,31 +88,31 @@ function App() {
                   <Topbar />
                   <div className="container">
                     <Sidebar />
-                    <ProductList />
+                    <MovieList />
                   </div>
                 </Fragment>
               }
             ></Route>
             <Route
-              path="/product/:productId"
+              path="/movie/:movieId"
               element={
                 <Fragment>
                   <Topbar />
                   <div className="container">
                     <Sidebar />
-                    <Product />
+                    <Movie />
                   </div>
                 </Fragment>
               }
             ></Route>
             <Route
-              path="/newproduct"
+              path="/newmovie"
               element={
                 <Fragment>
                   <Topbar />
                   <div className="container">
                     <Sidebar />
-                    <NewProduct />
+                    <NewMovie />
                   </div>
                 </Fragment>
               }

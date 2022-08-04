@@ -3,8 +3,23 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
+import { MovieContext } from "../../context/movieContext/MovieContext";
+import {
+  deleteMovie,
+  getMovies,
+} from "../../context/movieContext/MovieApiCalls";
 
 export default function MovieList() {
+  const { movies, dispatch } = useContext(MovieContext);
+
+  const handleDelete = (id) => {
+    deleteMovie(id, dispatch);
+  };
+
+  useEffect(() => {
+    getMovies(dispatch);
+  }, [dispatch]);
+
   const columns = [
     { field: "_id", headerName: "ID", width: 90 },
     {
@@ -13,16 +28,16 @@ export default function MovieList() {
       width: 200,
       renderCell: (params) => {
         return (
-          <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
+          <div className="movieListItem">
+            <img className="movieListImg" src={params.row.img} alt="" />
             {params.row.title}
           </div>
         );
       },
     },
     { field: "genre", headerName: "Genre", width: 120 },
-    { field: "year", headerName: "year", width: 120 },
-    { field: "limit", headerName: "limit", width: 120 },
+    { field: "year", headerName: "Year", width: 120 },
+    { field: "limit", headerName: "Limit", width: 120 },
     { field: "isSeries", headerName: "isSeries", width: 120 },
 
     {
@@ -33,11 +48,15 @@ export default function MovieList() {
         return (
           <>
             <Link
-              to={{ pathname: "/movie/" + params.row._id, movie: params.row }}
+              to={{ pathname: "/movie/" + params.row._id }}
+              state={{ movie: params.row }}
             >
-              <button className="productListEdit">Edit</button>
+              <button className="movieListEdit">Edit</button>
             </Link>
-            <DeleteOutline className="productListDelete" />
+            <DeleteOutline
+              className="movieListDelete"
+              onClick={() => handleDelete(params.row._id)}
+            />
           </>
         );
       },
@@ -45,8 +64,9 @@ export default function MovieList() {
   ];
 
   return (
-    <div className="productList">
+    <div className="movieList">
       <DataGrid
+        rows={movies}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
