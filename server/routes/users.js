@@ -59,6 +59,7 @@ router.get("/find/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 //GET ALL
 
 router.get("/", verify, async (req, res) => {

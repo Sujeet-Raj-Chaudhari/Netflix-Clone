@@ -142,11 +142,11 @@ export default function NewMovie() {
           />
         </div>
         <div className="addMovieItem">
-          <label>Limit</label>
+          <label>Age Limit</label>
           <input
             type="text"
-            placeholder="limit"
-            name="limit"
+            placeholder="age_limit"
+            name="age_limit"
             onChange={handleChange}
           />
         </div>

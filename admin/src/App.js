@@ -27,14 +27,15 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path="/login"
-          element={user ? <Navigate to="/" /> : <Login />}
+          exact
+          path="/"
+          element={!user ? <Login /> : <Navigate to="/home" />}
         ></Route>
         {user && (
           <>
             <Route
               exact
-              path="/"
+              path="/home"
               element={
                 <Fragment>
                   <Topbar />

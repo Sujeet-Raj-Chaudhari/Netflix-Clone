@@ -3,7 +3,7 @@ import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import "./home.css";
 
 import WidgetSm from "../../components/widgetSm/WidgetSm";
-import WidgetLg from "../../components/widgetLg/WidgetLg";
+// import WidgetLg from "../../components/widgetLg/WidgetLg";
 import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 
@@ -34,7 +34,7 @@ export default function Home() {
         const res = await axios.get("/users/stats", {
           header: {
             authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZGQzNmExNmVjMzAwNjk0NTUwNDMyZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1OTMzMTA4NiwiZXhwIjoxNjU5NzYzMDg2fQ.lFCkkZ8-b0JjjgdSvwYuQFWn_ZcbgeEqf3g_xmI9CHk",
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         const statsList = res.data.sort(function (a, b) {
@@ -61,7 +61,7 @@ export default function Home() {
       <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
         <WidgetSm />
-        <WidgetLg />
+        {/* <WidgetLg /> */}
       </div>
     </div>
   );

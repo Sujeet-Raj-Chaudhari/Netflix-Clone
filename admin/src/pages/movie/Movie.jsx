@@ -6,6 +6,7 @@ import { Publish } from "@material-ui/icons";
 export default function Movie() {
   const location = useLocation();
   const movie = location.state.movie;
+  console.log(movie);
   return (
     <div className="movie">
       <div className="movieTitleContainer">
@@ -34,8 +35,8 @@ export default function Movie() {
               <span className="movieInfoValue">{movie.year}</span>
             </div>
             <div className="movieInfoItem">
-              <span className="movieInfoKey">Limit:</span>
-              <span className="movieInfoValue">{movie.limit}</span>
+              <span className="movieInfoKey">Age-Limit:</span>
+              <span className="movieInfoValue">{movie.age_limit}</span>
             </div>
           </div>
         </div>

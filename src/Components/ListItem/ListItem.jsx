@@ -53,7 +53,7 @@ export default function ListItem({ index, item }) {
               </div>
               <div className="itemInfoTop">
                 <span>{movie.duration}</span>
-                <span className="limit">{movie.limit}</span>
+                <span className="limit">{"+" + movie.age_limit}</span>
                 <span>{movie.year}</span>
               </div>
               <div className="desc">{movie.desc}</div>
