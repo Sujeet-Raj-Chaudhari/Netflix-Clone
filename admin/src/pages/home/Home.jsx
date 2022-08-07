@@ -1,5 +1,5 @@
 import Chart from "../../components/chart/Chart";
-import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
+// import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import "./home.css";
 
 import WidgetSm from "../../components/widgetSm/WidgetSm";
@@ -57,7 +57,7 @@ export default function Home() {
   console.log(userStats);
   return (
     <div className="home">
-      <FeaturedInfo />
+      {/* <FeaturedInfo /> */}
       <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
         <WidgetSm />

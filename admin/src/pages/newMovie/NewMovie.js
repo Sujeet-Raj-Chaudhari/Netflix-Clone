@@ -67,7 +67,7 @@ export default function NewMovie() {
 
   return (
     <div className="newMovie">
-      <h1 className="addMovieTitle">New Movie</h1>
+      <h1 className="addMovieTitle">New Movie / Series</h1>
       <form className="addMovieForm">
         <div className="addMovieItem">
           <label>Image</label>

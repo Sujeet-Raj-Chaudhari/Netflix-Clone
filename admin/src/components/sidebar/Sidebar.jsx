@@ -51,7 +51,7 @@ export default function Sidebar() {
             <Link to="/movies" className="link">
               <li className="sidebarListItem">
                 <PlayCircleOutline className="sidebarIcon" />
-                Movies
+                Movies/Series
               </li>
             </Link>
             <Link to="/lists" className="link">
@@ -63,7 +63,7 @@ export default function Sidebar() {
             <Link to="/newmovie" className="link">
               <li className="sidebarListItem">
                 <AddToQueue className="sidebarIcon" />
-                Add Movie
+                Add Movie/Series
               </li>
             </Link>
             <Link to="/newList" className="link">
